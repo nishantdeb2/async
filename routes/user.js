@@ -122,4 +122,46 @@ module.exports=[
           }
           }
 }
+,{
+  method: 'GET',
+      path: '/promiseandcallback1',
+      config: {
+
+            validate: {
+
+                },
+          },
+          handler: function (request, h){
+          try{
+            let a=  control.user.promiseandcallback1();
+              return a
+            }
+            catch(err)
+            {
+            throw(err);
+            }
+            }
+
+},
+{
+  method: 'GET',
+      path: '/promiseandcallback2',
+      config: {
+
+            validate: {
+
+                },
+          },
+          handler: function (request, h){
+          try{
+            let a=  control.user.promiseandcallback2();
+              return a
+            }
+            catch(err)
+            {
+            throw(err);
+            }
+            }
+
+}
 ]

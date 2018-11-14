@@ -11,7 +11,7 @@ const jwtDecode = require('jwt-decode');
 const constant= require('../constant').errorMessage.eng;
 const statuss = require('../constant').successmessage.eng;
 const all = require("bluebird").all
-
+// const collection = db.collection('user');
 // import {props, all, coroutine} from 'bluebird';
 
 
@@ -20,7 +20,8 @@ const all = require("bluebird").all
 
 module.exports={
   asyncwaterfall:async (data)=>
-  { try{
+  {
+     try{
 
     async.waterfall([
       function(callback){
@@ -63,6 +64,7 @@ module.exports={
     {
       throw(err);
     }
+
   },
   asyncauto:async (data)=>
   { try{
@@ -224,6 +226,53 @@ return statuss
 // {
 //   throw(err);
 // }
+
+},
+promiseandcallback1 : (data)=>
+{
+  const promise1 = new Promise((resolve,reject)=>{
+    const collection = db.collection('user');
+    let data = collection.find({}).sort({pushid:1}).skip(5).limit(5).toArray()
+    n= data.length
+    if(n!=5){
+      resolve(data);
+    }
+    else{
+     reject(n);
+    }
+  });
+
+  promise1.then(function(results){
+console.log('success',results);
+}).catch(function(err){
+console.log('error');
+})
+return statuss
+
+},
+promiseandcallback2 : (data)=>
+{
+
+    const collection = db.collection('user');
+    collection.find({}).sort({pushid:1}).skip(0).limit(5).toArray((err,res)=>{
+      if(err)
+      {
+        console.log("errror in fetching record",err);
+      }
+      else {
+        {
+          console.log("success",res);
+        }
+      }
+    })
+
+
+
+
+return statuss
+
+
+
 
 }
 

@@ -80,6 +80,35 @@ catch(err)
 {
   throw(err);
 }
+},
+
+
+
+promiseandcallback1 :async(body)=>{
+  try{
+// console.log(body);
+  let a= await services.user.promiseandcallback1(body);
+  // console.log(a);
+  return a;
+
+}
+catch(err)
+{
+  throw(err);
+}
+},
+promiseandcallback2 :async(body)=>{
+  try{
+// console.log(body);
+  let a= await services.user.promiseandcallback2(body);
+  // console.log(a);
+  return a;
+
+}
+catch(err)
+{
+  throw(err);
+}
 }
 
 
