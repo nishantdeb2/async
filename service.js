@@ -11,7 +11,7 @@ const init = async () => {
   throw(err);
   }
   try{
-    console.log(",,,,,,,,,,,,,,,,,,,");
+    console.log("Server setup");
   await server.start();
     }
 catch(err){
