@@ -5,9 +5,10 @@ module.exports = {
 
     errorMessage: {
         eng: {
-          
-            insert:Boom.expectationFailed("error in insert")
 
+
+          status:401,
+          message:"Error in execution "
 
         }
     },

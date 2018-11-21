@@ -11,7 +11,7 @@ async function dbcon(){
     MongoClient.connect(url, (err, client)=> {
     console.log("COnnected database");
     global.db = client.db(dbName);
-    model.user.collection();
+    // model.user.collection();
     // model.job.collection();
   });
 }catch(err){
